@@ -1,10 +1,3 @@
-Here's a complete draft of both the `README.md` and `AUTHORS` files for your `alu-AirBnB_clone` project. You can copy and paste these directly into your repository, adjusting names or details as needed.
-
----
-
-### ✅ `README.md`
-
-````markdown
 # ALU AirBnB Clone - The Console
 
 This project is the first step in building a full web application that simulates the functionalities of the AirBnB platform. It is developed as part of the ALU software engineering curriculum, aiming to deepen understanding of object-oriented programming, data persistence, and the creation of a command-line interface (CLI) using Python.
