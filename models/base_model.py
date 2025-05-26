@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This is the base model class for AirBnB"""
+
 from sqlalchemy.ext.declarative import declarative_base
 import uuid
 import models
@@ -7,6 +8,7 @@ from datetime import datetime
 from sqlalchemy import Column, String, DateTime
 
 Base = declarative_base()
+
 
 class BaseModel:
     """This class defines all common attributes/methods for other classes"""
@@ -20,7 +22,7 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                if key != "__class__":
+                if key != "__class__":  # Skip class name
                     setattr(self, key, value)
             if "id" not in kwargs:
                 self.id = str(uuid.uuid4())
@@ -33,17 +35,18 @@ class BaseModel:
             self.created_at = self.updated_at = datetime.utcnow()
 
     def __str__(self):
-        """returns string representation"""
-        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
+        """Returns string representation"""
+        return "[{}] ({}) {}".format(
+            type(self).__name__, self.id, self.__dict__)
 
     def save(self):
-        """updates updated_at with current datetime and saves the object"""
+        """Updates updated_at with current datetime and saves the object"""
         self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
-        """returns a dictionary with all keys/values including class name"""
+        """Returns a dictionary with all keys/values including class name"""
         my_dict = dict(self.__dict__)
         my_dict["__class__"] = type(self).__name__
         my_dict["created_at"] = self.created_at.isoformat()
@@ -53,5 +56,5 @@ class BaseModel:
         return my_dict
 
     def delete(self):
-        """deletes the current instance from storage"""
+        """Deletes the current instance from storage"""
         models.storage.delete(self)
