@@ -105,4 +105,4 @@ See the [AUTHORS](./AUTHORS) file for a list of contributors.
 ### ✅ `AUTHORS`
 
 ```text
-Anthony Ariik Mathiang Ariik <anthony.ariik@alustudent.com>
+Deng Mayen Deng <d.akol@alustudent.com>
