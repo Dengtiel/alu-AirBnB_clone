@@ -14,7 +14,7 @@ $nginx_conf = "server {
     }
 
     location /redirect_me {
-        return 301 http://longmaker.tech/;
+        return 301 http://ssdsolution.tech/;
     }
 
     error_page 404 /404.html;
