@@ -7,13 +7,16 @@ $nginx_conf = "server {
     add_header X-Served-By ${hostname};
     root   /var/www/html;
     index  index.html index.htm;
+
     location /hbnb_static {
         alias /data/web_static/current;
         index index.html index.htm;
     }
+
     location /redirect_me {
-        return 301 https://th3-gr00t.tk;
+        return 301 http://longmaker.tech/;
     }
+
     error_page 404 /404.html;
     location /404 {
       root /var/www/html;
